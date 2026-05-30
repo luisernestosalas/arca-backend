@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEGIS HOLDING · Presentación Ejecutiva</title>
+<style>
+:root {
+  --bg: #0b0c10;
+  --surface: #12141b;
+  --surface-alt: #1a1d27;
+  --border: #2a2f3a;
+  --text: #e8eaf0;
+  --text-muted: #9ca3af;
+  --accent-aegis: #6366f1;
+  --accent-prismia: #06b6d4;
+  --accent-aegia: #f59e0b;
+  --accent-pulsia: #8b5cf6;
+  --accent-cashia: #10b981;
+  --success: #22c55e;
+  --warning: #f97316;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { line-height: 1.2; margin-bottom: 0.5em; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); border-bottom: 2px solid var(--border); padding-bottom: 0.4em; margin-top: 2em; }
+h3 { color: var(--text-muted); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.5em; }
+p { margin-bottom: 1em; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+header, section, footer { padding: 40px 0; }
+header { background: linear-gradient(135deg, #111827 0%, #0b0c10 100%); text-align: center; }
+.badge { display: inline-block; padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+.grid { display: grid; gap: 20px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); transition: transform 0.2s; }
+.card:hover { transform: translateY(-4px); }
+.card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.icon { font-size: 1.8rem; }
+.stat { font-size: 2rem; font-weight: 700; color: var(--text); }
+.stat-sub { font-size: 0.9rem; color: var(--text-muted); }
+table { width: 100%; border-collapse: collapse; margin: 1.5em 0; background: var(--surface); border-radius: var(--radius); overflow: hidden; }
+th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--surface-alt); font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; }
+tr:last-child td { border-bottom: none; }
+.tag { display: inline-block; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 500; background: var(--border); margin: 2px; }
+.tag.prismia { background: rgba(6,182,212,0.2); color: var(--accent-prismia); }
+.tag.aegia { background: rgba(245,158,11,0.2); color: var(--accent-aegia); }
+.tag.pulsia { background: rgba(139,92,246,0.2); color: var(--accent-pulsia); }
+.tag.cashia { background: rgba(16,185,129,0.2); color: var(--accent-cashia); }
+.code { background: #0d1117; border: 1px solid #21262d; border-radius: 8px; padding: 15px; font-family: 'Fira Code', monospace; font-size: 0.85rem; overflow-x: auto; margin: 1em 0; color: #c9d1d9; }
+.highlight { color: var(--success); font-weight: 600; }
+.flywheel { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 2em 0; }
+.fly-node { background: var(--surface-alt); padding: 15px; border-radius: 10px; text-align: center; min-width: 140px; border: 1px solid var(--border); }
+.arrow { font-size: 1.5rem; color: var(--text-muted); align-self: center; }
+.cta { display: inline-block; padding: 12px 24px; background: var(--accent-aegis); color: #fff; border-radius: 8px; font-weight: 600; margin-top: 10px; transition: filter 0.2s; }
+.cta:hover { filter: brightness(1.1); }
+footer { border-top: 1px solid var(--border); margin-top: 3em; text-align: center; color: var(--text-muted); padding: 30px 0; }
+nav { position: sticky; top: 0; background: rgba(11,12,16,0.9); backdrop-filter: blur(10px); z-index: 100; padding: 10px 0; border-bottom: 1px solid var(--border); }
+nav ul { display: flex; justify-content: center; gap: 20px; list-style: none; flex-wrap: wrap; }
+nav a { font-weight: 500; padding: 5px 10px; border-radius: 6px; transition: background 0.2s; }
+nav a:hover { background: var(--surface-alt); }
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .flywheel { flex-direction: column; align-items: center; }
+  .arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <ul>
+      <li><a href="#aegis">🏢 AEGIS</a></li>
+      <li><a href="#prismia">⚡ PrismIA</a></li>
+      <li><a href="#aegia">🛡 AegIA</a></li>
+      <li><a href="#pulsia">🎯 PulsIA</a></li>
+      <li><a href="#cashia">💳 CashIA</a></li>
+      <li><a href="#thesis">📈 Inversión</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <span class="badge" style="background:rgba(99,102,241,0.2); color:var(--accent-aegis);">AEGIS HOLDING · INFRAESTRUCTURA EMPRESARIAL AUTÓNOMA</span>
+    <h1>Las empresas del futuro venden solas, son resilientes, son visibles y tienen capital.</h1>
+    <p style="font-size:1.2rem; color:var(--text-muted); max-width:800px; margin:1em auto;">
+      Primer ecosistema que conecta adquisición autónoma, certificación de resiliencia, visibilidad en IA y capital de trabajo inteligente en un solo flujo operativo.
+    </p>
+    <div class="grid grid-4" style="margin-top:2em;">
+      <div class="card"><div class="stat">847</div><div class="stat-sub">Empresas auditadas</div></div>
+      <div class="card"><div class="stat">23</div><div class="stat-sub">Certificaciones activas</div></div>
+      <div class="card"><div class="stat">$2.3M</div><div class="stat-sub">Financiados vía CashIA</div></div>
+      <div class="card"><div class="stat">4</div><div class="stat-sub">Productos integrados</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<section id="aegis">
+  <h2>🏢 AEGIS: El Ecosistema Unificado</h2>
+  <p>AEGIS no son 4 startups aisladas. Es una infraestructura compuesta donde el CAC se amortiza en 4 productos y la retención se multiplica por el efecto flywheel.</p>
+  
+  <h3>🔗 Flywheel Operativo</h3>
+  <div class="flywheel">
+    <div class="fly-node" style="border-color:var(--accent-prismia);"><div class="icon">⚡</div><strong>PrismIA</strong><br><small>Prospecta & Cierra</small></div>
+    <div class="arrow">→</div>
+    <div class="fly-node" style="border-color:var(--accent-aegia);"><div class="icon">🛡</div><strong>AegIA</strong><br><small>Certifica Resiliencia</small></div>
+    <div class="arrow">→</div>
+    <div class="fly-node" style="border-color:var(--accent-cashia);"><div class="icon">💳</div><strong>CashIA</strong><br><small>Financia & Opera</small></div>
+    <div class="arrow">→</div>
+    <div class="fly-node" style="border-color:var(--accent-pulsia);"><div class="icon">🎯</div><strong>PulsIA</strong><br><small>Visibiliza en IA</small></div>
+    <div class="arrow">→</div>
+    <div class="fly-node" style="border-color:var(--accent-aegis); background:var(--surface);"><div class="icon">♻️</div><strong>Acelera</strong><br><small>Ciclo compuesto</small></div>
+  </div>
+
+  <div class="grid grid-2" style="margin-top:1.5em;">
+    <div class="card">
+      <h4>✅ Ventajas del Ecosistema</h4>
+      <ul style="margin-left:1.2em;">
+        <li><span class="highlight">CAC amortizado</span> en 4 productos</li>
+        <li>Cliente usando 2+ productos tiene <span class="highlight">8x menor churn</span></li>
+        <li>Scoring compuesto: Historial PrismIA + Score AegIA = aprobación en segundos</li>
+        <li>Margen consolidado ~75% (software 76-87% + financiero 66%)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🌍 TAM LATAM Consolidado</h4>
+      <div class="stat">$305M</div>
+      <div class="stat-sub">Mercado direccionable en adquisición, resiliencia, visibilidad IA y capital de trabajo.</div>
+    </div>
+  </div>
+</section>
+
+<section id="prismia">
+  <h2 style="border-color:var(--accent-prismia);">⚡ PRISMIA: Sistema Operativo de Ventas Autónomo</h2>
+  <p>Primer OS que prospecta, califica, contacta y cierra sin intervención humana. Reduce CAC 60–70% en los primeros 7 días.</p>
+
+  <h3>🧠 Arquitectura Técnica</h3>
+  <table>
+    <tr><th>Capa</th><th>Función</th><th>Stack</th></tr>
+    <tr><td>Memory Layer</td><td>Historial completo, conversaciones, preferencias</td><td>PostgreSQL + pgvector, embeddings persistentes</td></tr>
+    <tr><td>Event Bus</td><td>Procesamiento en tiempo real de 17 tipos de eventos</td><td>startEventBus(), polling 60s, cola distribuida</td></tr>
+    <tr><td>AI Router</td><td>Decide autonomía (Auto/Notify/Approve) por urgencia/riesgo</td><td>Claude Haiku, classifyEvent(), autonomyDecision()</td></tr>
+    <tr><td>Enterprise Graph</td><td>Grafo de relaciones: contactos, empresas, deals</td><td>relational + vector search, pattern detection</td></tr>
+    <tr><td>Multi-Canal</td><td>WhatsApp, Email, LinkedIn DM, Telegram</td><td>Twilio, templates dinámicos, adaptación de tono</td></tr>
+    <tr><td>Audit Layer</td><td>Trazabilidad inmutable, compliance SOC2 en roadmap</td><td>logs immutable, governance layer</td></tr>
+  </table>
+
+  <h3>🤖 Los 4 Agentes Autónomos</h3>
+  <div class="grid grid-2">
+    <div class="card"><span class="tag prismia">🎯 SDR</span> Prospecta con Firecrawl, califica ICP 0-100, maneja objeciones, escala deals calientes.</div>
+    <div class="card"><span class="tag prismia">💰 Revenue</span> Secuencias de cierre, detecta deals estancados/at_risk, forecasts semanales, alertas de meta.</div>
+    <div class="card"><span class="tag prismia">👥 Talent</span> Reclutamiento autónomo, seguimiento 48h, detección ghosting, agendamiento automático.</div>
+    <div class="card"><span class="tag prismia">📊 Finance</span> Monitoreo pagos, predicción revenue, alertas bajo objetivo, integración MercadoPago.</div>
+  </div>
+
+  <h3>📈 Módulo Ventas Activas & Pipeline</h3>
+  <ul style="margin-left:1.2em;">
+    <li>Carga CSV → Normalización automática</li>
+    <li>Catálogos IA: Pega URL → Claude extrae ficha optimizada</li>
+    <li>Campañas masivas WhatsApp con personalización contextual</li>
+    <li>Reactivación inactivos (+14 días) → 31% tasa respuesta</li>
+    <li>Pipeline CRM visual: Contacto → Interesado → Demo → Negociación → Cierre</li>
+  </ul>
+
+  <h3>💰 Modelo de Ingresos</h3>
+  <table>
+    <tr><th>Plan</th><th>Precio</th><th>Usuarios/Leads</th><th>Target</th></tr>
+    <tr><td>Starter</td><td>$249/mes</td><td>3 / 500</td><td>Freelancers · PyMEs</td></tr>
+    <tr><td>Business ⭐</td><td>$599/mes</td><td>10 / 2,000</td><td>Agencias · SMBs</td></tr>
+    <tr><td>AI-First</td><td>$1,499/mes</td><td>Ilimitado / Ilimitado</td><td>Enterprises · Fondos</td></tr>
+  </table>
+  <p><strong>MRR Mes 24:</strong> <span class="highlight">$59.9K</span> (Base) → $120K (Optimista) · Churn: 3%/mes</p>
+</section>
+
+<section id="aegia">
+  <h2 style="border-color:var(--accent-aegia);">🛡 AEGIA: Certificación de Resiliencia Empresarial</h2>
+  <p>No mide lo que hiciste. Mide lo que vas a hacer. Estándar que evalúa probabilidad de supervivencia mediante simulación avanzada.</p>
+
+  <h3>🔬 Motor ARCA (C+Python)</h3>
+  <div class="code">
+# Cópula Gaussiana con Descomposición de Cholesky
+def run(self) → SimulationResult:
+    L = np.linalg.cholesky(CORRELATION_MATRIX)
+    Z = np.random.randn(10_000, 7)
+    corr_samples = Z @ L.T
+    U = norm.cdf(corr_samples)
+    weighted = U * weights
+    global_scores = weighted.sum(axis=1) * 100
+    p_survival = (global_scores >= 40).mean()
+    cert_hash = hashlib.sha256(f"{p_survival}{scores}{seed}".encode()).hexdigest()
+  </div>
+  <p><strong>Velocidad:</strong> 10–20x más rápido que Python puro · <strong>10,000 simulaciones en &lt;2s</strong> · Hash SHA-256 verificable</p>
+
+  <h3>📐 7 Dimensiones Correlacionadas</h3>
+  <table>
+    <tr><th>Dimensión</th><th>Peso</th><th>Qué Mide</th><th>Umbral Crítico</th></tr>
+    <tr><td>D1 Liquidez Estructural</td><td>30%</td><td>Runway, ratio corriente, acceso crédito</td><td>&lt;25 pts</td></tr>
+    <tr><td>D2 Concentración Ingresos</td><td>20%</td><td>% revenue top-3, diversificación</td><td>&lt;20 pts</td></tr>
+    <tr><td>D3 Dependencia Operacional</td><td>15%</td><td>Proveedor único, personas clave</td><td>&lt;20 pts</td></tr>
+    <tr><td>D4 Exposición Macro</td><td>10%</td><td>Riesgo cambiario, tasas, ciclos</td><td>&lt;15 pts</td></tr>
+    <tr><td>D5 Resiliencia Legal</td><td>10%</td><td>Litigios, cumplimiento, salidas</td><td>&lt;15 pts</td></tr>
+    <tr><td>D6 Capacidad Adaptativa</td><td>10%</td><td>Velocidad pivote, holgura costos</td><td>&lt;20 pts</td></tr>
+    <tr><td>D7 Gobernanza</td><td>5%</td><td>Board, auditorías, transparencia</td><td>&lt;15 pts</td></tr>
+  </table>
+
+  <h3>⚡ 5 Shocks Determinísticos</h3>
+  <div class="grid grid-3">
+    <div class="card"><strong>S1 Credit Crunch</strong><br>D1 -30 · D4 -10</div>
+    <div class="card"><strong>S2 Revenue Shock</strong><br>D2 -35 · D6 -10 · D1 -5</div>
+    <div class="card"><strong>S3 Key Person Loss</strong><br>D3 -40 · D6 -15 · D7 -10</div>
+    <div class="card"><strong>S4 Regulatory</strong><br>D5 -30 · D7 -10 · D4 -5</div>
+    <div class="card"><strong>S5 Black Swan</strong><br>S1+S2+S4 combinado</div>
+    <div class="card" style="background:var(--surface-alt); border:1px solid var(--accent-aegia);">Gold+ requiere sobrevivir ≥3 shocks</div>
+  </div>
+
+  <h3>🏆 Niveles & Antimanipulación</h3>
+  <p>💎 Platinum (≥85) · 🥇 Gold (≥70) · 🥈 Silver (≥55) · 🥉 Bronze (≥40)<br>
+  <span class="tag aegia">Ratios Imposibles</span> <span class="tag aegia">Concentración Oculta</span> <span class="tag aegia">Anomalías >2σ</span> <span class="tag aegia">Inmutabilidad SHA-256</span></p>
+
+  <h3>💰 Modelo de Ingresos</h3>
+  <table>
+    <tr><th>Segmento</th><th>Pricing</th><th>MRR Mes 24</th></tr>
+    <tr><td>Startups</td><td>$130 USD / cert.</td><td>$130K</td></tr>
+    <tr><td>Fondos VC</td><td>$3M–$12M COP/mes</td><td>$25K</td></tr>
+    <tr><td>Bancos</td><td>$5K–$50K USD/mes</td><td>$150K</td></tr>
+    <tr><td>Proyectos</td><td>$5K–$50K USD / proyecto</td><td>$75K</td></tr>
+  </table>
+  <p><strong>MRR Mes 24:</strong> <span class="highlight">$380K</span> (Base) → $750K (Optimista Mes 30) · Margen: 87%</p>
+</section>
+
+<section id="pulsia">
+  <h2 style="border-color:var(--accent-pulsia);">🎯 PULSIA: Visibilidad en Inteligencia Artificial</h2>
+  <p>Mide el <strong>ASA%</strong> (AI Share of Answer): cuánto y cómo te recomiendan ChatGPT, Gemini y Perplexity. Categoría nueva: <em>AI Readability</em>.</p>
+
+  <h3>📊 Scorer Multicapa (0-100)</h3>
+  <table>
+    <tr><th>Dimensión</th><th>Peso</th><th>Señales Clave</th></tr>
+    <tr><td>Semántica</td><td>30%</td><td>schema.org, meta tags, Open Graph, entidades</td></tr>
+    <tr><td>Autoridad</td><td>25%</td><td>AggregateRating, sameAs≥3, reviews, premios</td></tr>
+    <tr><td>Técnica</td><td>20%</td><td>H1-H6, alt≥80%, contenido estructurado, velocidad</td></tr>
+    <tr><td>Conversacional</td><td>15%</td><td>FAQPage, precios, horarios, coordenadas</td></tr>
+    <tr><td>Confianza</td><td>10%</td><td>Organization schema, políticas, foundingDate, NIT/RUT</td></tr>
+  </table>
+
+  <h3>🌐 Semantic Layer Generator</h3>
+  <p>El "sitemap para IAs". Genera automáticamente:</p>
+  <div class="grid grid-3">
+    <div class="card"><span class="tag pulsia">/pulsia.json</span><br>JSON-LD para ChatGPT/Gemini</div>
+    <div class="card"><span class="tag pulsia">/pulsia.txt</span><br>llms.txt para Perplexity/Claude</div>
+    <div class="card"><span class="tag pulsia">/pulsia.xml</span><br>XML estructurado para Copilot/Bing</div>
+  </div>
+
+  <h3>💰 Modelo de Ingresos</h3>
+  <table>
+    <tr><th>Plan</th><th>Precio</th><th>Target</th></tr>
+    <tr><td>Diagnóstico</td><td>$97 (único)</td><td>PyMEs · Primera auditoría</td></tr>
+    <tr><td>Implementación</td><td>$247 (único)</td><td>Empresas que quieren actuar</td></tr>
+    <tr><td>Monitoreo Pro ⭐</td><td>$247/mes</td><td>Empresas en crecimiento</td></tr>
+    <tr><td>Agencia</td><td>$997/mes</td><td>White-label · 50 cuentas</td></tr>
+  </table>
+  <p><strong>MRR Mes 24:</strong> <span class="highlight">$99.2K</span> → $200K (Optimista Mes 30) · Margen: 76%</p>
+</section>
+
+<section id="cashia">
+  <h2 style="border-color:var(--accent-cashia);">💳 CASHIA: Capa Financiera Inteligente</h2>
+  <p>Infraestructura financiera sin ser fintech. Billeteras multi-moneda, BNPL publicitario y tarjetas virtuales, powered by Nium (190+ países).</p>
+
+  <h3>🔄 3 Modos · 6 Módulos Core</h3>
+  <div class="grid grid-3">
+    <div class="card"><strong>Personal</strong><br>Individuos · Billetera multi-moneda · Payouts</div>
+    <div class="card"><strong>Tendero 🏪</strong><br>Comercios · BNPL publicitario · Comisiones MLM</div>
+    <div class="card"><strong>Platform ⚙️</strong><br>Marketplaces · White-label · Multi-tenant API</div>
+  </div>
+  <p style="margin-top:1em;">Módulos: Auth/KYC · Wallets · Payments (Bre-B, PSE, Nequi, Daviplata + Nium) · Corp (B2B) · Platform · Notifications (WhatsApp/Push)</p>
+
+  <h3>🤝 BNPL & Scoring Dinámico</h3>
+  <p>Financia campañas a 30–90 días. Límite y tasa (1–3%/mes) determinados por historial PrismIA + score AegIA. Sin papeles. Sin garantías reales.</p>
+
+  <h3>🌍 Red de Referidos (MLM) — CAC $0</h3>
+  <table>
+    <tr><th>Nivel</th><th>Comisión</th><th>Funcionamiento</th></tr>
+    <tr><td>Nivel 1 · Directo</td><td>10%</td><td>Sobre comisión CashIA del referido</td></tr>
+    <tr><td>Nivel 2 · Indirecto</td><td>5%</td><td>Sobre referidos de tu Nivel 1</td></tr>
+    <tr><td>Nivel 3 · Red</td><td>2.5%</td><td>3 niveles de profundidad · Sin límite</td></tr>
+  </table>
+  <p><strong>127 referidos activos · $8,400 pagados este mes</strong></p>
+
+  <h3>💰 Modelo de Ingresos</h3>
+  <table>
+    <tr><th>Fuente</th><th>Descripción</th><th>MRR Mes 24</th></tr>
+    <tr><td>Take Rate TPV</td><td>1.5% promedio</td><td>$150K</td></tr>
+    <tr><td>BNPL intereses</td><td>1–3%/mes cartera</td><td>$40K</td></tr>
+    <tr><td>Suscripciones</td><td>$299–$999/mes</td><td>$50K</td></tr>
+    <tr><td>White-Label</td><td>Rev. share 20–30%</td><td>$60K</td></tr>
+  </table>
+  <p><strong>MRR Mes 24:</strong> <span class="highlight">$200K</span> (Base) → $500K (Optimista Mes 30 con Mercado Libre) · Margen: 66%</p>
+</section>
+
+<section id="thesis">
+  <h2>📈 Tesis de Inversión & Roadmap</h2>
+  <div class="grid grid-2">
+    <div class="card" style="background:var(--surface-alt);">
+      <h3>🎯 Ronda Actual</h3>
+      <p><strong>Pre-Series A · $5M USD</strong><br>10–15% equity · Valuación $33–50M</p>
+    </div>
+    <div class="card" style="background:var(--surface-alt);">
+      <h3>💼 Uso de Fondos</h3>
+      <ul style="margin-left:1.2em;">
+        <li>40% Equipo comercial (CO, MX, BR)</li>
+        <li>30% Integraciones técnicas (Nium, ML, Bancos)</li>
+        <li>20% Expansión LATAM & compliance</li>
+        <li>10% Operaciones & infraestructura</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>🗓️ Roadmap 12 Meses</h3>
+  <table>
+    <tr><th>Trimestre</th><th>Hitos Clave</th></tr>
+    <tr><td>M1–3</td><td>PrismIA + AegIA para fondos/bancos · Piloto 3 entidades · 2 proyectos ancla</td></tr>
+    <tr><td>M3–6</td><td>CashIA + Nium integrado · Tarjetas virtuales 5 agencias · MLM activo 500+ referidos</td></tr>
+    <tr><td>M6–9</td><td>Expansión México/Brasil · Integración Mercado Libre · CashIA Platform white-label</td></tr>
+    <tr><td>M9–12</td><td>Prep Serie A · Amazon SP-API · Corredores EEUU-LATAM / EAU-India operativos</td></tr>
+  </table>
+
+  <h3>📊 Proyección Consolidada Mes 24</h3>
+  <table>
+    <tr><th>Producto</th><th>MRR Base</th><th>Margen Bruto</th></tr>
+    <tr><td>⚡ PrismIA</td><td>$59.9K</td><td>~80%</td></tr>
+    <tr><td>🛡 AegIA</td><td>$380K</td><td>87%</td></tr>
+    <tr><td>🎯 PulsIA</td><td>$99.2K</td><td>76%</td></tr>
+    <tr><td>💳 CashIA</td><td>$200K</td><td>66%</td></tr>
+    <tr><td><strong>TOTAL</strong></td><td><strong>~$978K/mes</strong></td><td><strong>~75% promedio</strong></td></tr>
+  </table>
+  <p style="margin-top:1em;"><strong>ARR Año 2: ~$11M+</strong> · LTV:CAC proyectado: 8:1 · Churn neto consolidado: &lt;3%/mes</p>
+
+  <div style="text-align:center; margin-top:2em;">
+    <p style="font-size:1.3rem; font-style:italic; color:var(--text-muted);">
+      "No estamos construyendo cuatro apps. Estamos construyendo la infraestructura que los bancos necesitan para evaluar riesgo, los proyectos para cerrar financiamiento, y las empresas para vender y crecer."
+    </p>
+    <a href="#aegis" class="cta">Solicitar Demo Integrada</a>
+    <a href="#thesis" class="cta" style="background:transparent; border:2px solid var(--accent-aegis); margin-left:10px;">Descargar Data Room</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>AEGIS HOLDING</strong> · Infraestructura Empresarial Autónoma · Bogotá, Colombia</p>
+    <p style="margin:10px 0;">📩 inversores@aegis.holding · +57 3XX XXX XXXX</p>
+    <p style="font-size:0.9rem;">© 2026 AEGIS HOLDING · PrismIA v2.1 · AegIA ARCA Engine v1.0 · PulsIA Live · CashIA Nium Powered</p>
+  </div>
+</footer>
+
+</body>
+</html>
