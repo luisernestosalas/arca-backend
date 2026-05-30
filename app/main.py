@@ -9,6 +9,7 @@ from app.core.config import settings
 logger = logging.getLogger(__name__)
 
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     if settings.SUPABASE_URL and settings.SUPABASE_SERVICE_KEY:
@@ -31,7 +32,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
