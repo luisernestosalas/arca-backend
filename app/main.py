@@ -12,6 +12,16 @@ logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Crear tablas automáticamente
+    try:
+        from app.db.session import engine
+        from app.models.models import Base
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+        logger.info("Tablas creadas/verificadas")
+    except Exception as e:
+        logger.warning(f"Error creando tablas: {e}")
+
     if settings.SUPABASE_URL and settings.SUPABASE_SERVICE_KEY:
         try:
             from app.services.supabase_client import get_storage_client
